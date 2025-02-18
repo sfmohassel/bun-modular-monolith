@@ -1,24 +1,57 @@
 {
+  "include": [
+    "apps/**/*",
+    "libs/**/*"
+  ],
   "compilerOptions": {
-    // Enable latest features
-    "lib": ["ESNext", "DOM"],
+    "strict": true,
     "target": "ESNext",
+    "lib": [
+      "ESNext",
+      "DOM"
+    ],
     "module": "ESNext",
+    "moduleResolution": "bundler",
+    "baseUrl": ".",
+    "outDir": "dist",
+    "paths": {
+      "shared": [
+        "libs/shared/index.ts"
+      ],
+      "@iam/core": [
+        "libs/iam/core/index.ts"
+      ],
+      "@iam/app": [
+        "libs/iam/app/index.ts"
+      ],
+      "@iam/infra": [
+        "libs/iam/infra/index.ts"
+      ],
+      "@todo/core": [
+        "libs/todo/core/index.ts"
+      ],
+      "@todo/app": [
+        "libs/todo/app/index.ts"
+      ],
+      "@todo/infra": [
+        "libs/todo/infra/index.ts"
+      ]
+    },
+    "noImplicitAny": true,
+    "forceConsistentCasingInFileNames": true,
+    "verbatimModuleSyntax": true,
+    "incremental": true,
+    // Enable latest features
     "moduleDetection": "force",
     "jsx": "react-jsx",
-    "allowJs": true,
-
+    "allowJs": false,
     // Bundler mode
-    "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
-    "verbatimModuleSyntax": true,
     "noEmit": true,
-
     // Best practices
-    "strict": true,
     "skipLibCheck": true,
     "noFallthroughCasesInSwitch": true,
-
+    "esModuleInterop": true,
     // Some stricter flags (disabled by default)
     "noUnusedLocals": false,
     "noUnusedParameters": false,
