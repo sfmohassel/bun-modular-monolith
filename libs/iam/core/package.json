@@ -1,0 +1,8 @@
+{
+  "name": "@iam/core",
+  "private": true,
+  "version": "1.0.0",
+  "dependencies": {
+    "shared": "workspace:*"
+  }
+}

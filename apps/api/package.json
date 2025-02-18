@@ -1,0 +1,14 @@
+{
+  "name": "api",
+  "private": true,
+  "version": "1.0.0",
+  "dependencies": {
+    "shared": "workspace:*",
+    "@iam/infra": "workspace:*",
+    "@iam/app": "workspace:*",
+    "@iam/core": "workspace:*",
+    "@todo/infra": "workspace:*",
+    "@todo/app": "workspace:*",
+    "@todo/core": "workspace:*"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "name": "@iam/infra",
+  "private": true,
+  "version": "1.0.0",
+  "dependencies": {
+    "@iam/infra": "workspace:*"
+  }
+}
