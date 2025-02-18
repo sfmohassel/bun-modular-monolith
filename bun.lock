@@ -3,22 +3,97 @@
   "workspaces": {
     "": {
       "name": "my-todo",
+      "dependencies": {
+        "typescript": "^5.0.0",
+      },
       "devDependencies": {
         "@types/bun": "latest",
       },
-      "peerDependencies": {
-        "typescript": "^5.0.0",
+    },
+    "apps/api": {
+      "name": "api",
+      "version": "1.0.0",
+      "dependencies": {
+        "@iam/app": "workspace:*",
+        "@iam/core": "workspace:*",
+        "@iam/infra": "workspace:*",
+        "@todo/app": "workspace:*",
+        "@todo/core": "workspace:*",
+        "@todo/infra": "workspace:*",
+        "shared": "workspace:*",
+      },
+    },
+    "libs/iam/app": {
+      "name": "@iam/app",
+      "version": "1.0.0",
+      "dependencies": {
+        "@iam/core": "workspace:*",
+      },
+    },
+    "libs/iam/core": {
+      "name": "@iam/core",
+      "version": "1.0.0",
+      "dependencies": {
+        "shared": "workspace:*",
+      },
+    },
+    "libs/iam/infra": {
+      "name": "@iam/infra",
+      "version": "1.0.0",
+      "dependencies": {
+        "@iam/infra": "workspace:*",
+      },
+    },
+    "libs/shared": {
+      "name": "shared",
+      "version": "1.0.0",
+    },
+    "libs/todo/app": {
+      "name": "@todo/app",
+      "version": "1.0.0",
+      "dependencies": {
+        "@todo/core": "workspace:*",
+      },
+    },
+    "libs/todo/core": {
+      "name": "@todo/core",
+      "version": "1.0.0",
+      "dependencies": {
+        "shared": "workspace:*",
+      },
+    },
+    "libs/todo/infra": {
+      "name": "@todo/infra",
+      "version": "1.0.0",
+      "dependencies": {
+        "@todo/app": "workspace:*",
       },
     },
   },
   "packages": {
+    "@iam/app": ["@iam/app@workspace:libs/iam/app"],
+
+    "@iam/core": ["@iam/core@workspace:libs/iam/core"],
+
+    "@iam/infra": ["@iam/infra@workspace:libs/iam/infra"],
+
+    "@todo/app": ["@todo/app@workspace:libs/todo/app"],
+
+    "@todo/core": ["@todo/core@workspace:libs/todo/core"],
+
+    "@todo/infra": ["@todo/infra@workspace:libs/todo/infra"],
+
     "@types/bun": ["@types/bun@1.2.2", "", { "dependencies": { "bun-types": "1.2.2" } }, "sha512-tr74gdku+AEDN5ergNiBnplr7hpDp3V1h7fqI2GcR/rsUaM39jpSeKH0TFibRvU0KwniRx5POgaYnaXbk0hU+w=="],
 
     "@types/node": ["@types/node@22.13.4", "", { "dependencies": { "undici-types": "~6.20.0" } }, "sha512-ywP2X0DYtX3y08eFVx5fNIw7/uIv8hYUKgXoK8oayJlLnKcRfEYCxWMVE1XagUdVtCJlZT1AU4LXEABW+L1Peg=="],
 
     "@types/ws": ["@types/ws@8.5.14", "", { "dependencies": { "@types/node": "*" } }, "sha512-bd/YFLW+URhBzMXurx7lWByOu+xzU9+kb3RboOteXYDfW+tr+JZa99OyNmPINEGB/ahzKrEuc8rcv4gnpJmxTw=="],
 
+    "api": ["api@workspace:apps/api"],
+
     "bun-types": ["bun-types@1.2.2", "", { "dependencies": { "@types/node": "*", "@types/ws": "~8.5.10" } }, "sha512-RCbMH5elr9gjgDGDhkTTugA21XtJAy/9jkKe/G3WR2q17VPGhcquf9Sir6uay9iW+7P/BV0CAHA1XlHXMAVKHg=="],
+
+    "shared": ["shared@workspace:libs/shared"],
 
     "typescript": ["typescript@5.7.3", "", { "bin": { "tsc": "bin/tsc", "tsserver": "bin/tsserver" } }, "sha512-84MVSjMEHP+FQRPy3pX9sTVV/INIex71s9TL2Gm5FG/WG1SqXeKyZ0k7/blY/4FdOzI12CBy1vGc4og/eus0fw=="],
 
