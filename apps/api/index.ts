@@ -1,1 +1,1 @@
-console.log("Hi from API");
+console.log('Hi from API')
