@@ -1,15 +1,13 @@
 # my-todo
 
-To install dependencies:
+## Roadmap
 
-```bash
-bun install
-```
-
-To run:
-
-```bash
-bun run index.ts
-```
-
-This project was created using `bun init` in bun v1.2.2. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
+- Recommended Extensions
+- Transactions
+- Prevent nested transactions using AsyncLocalStorage
+- Logging
+- Outbox pattern to store events reliably
+- Dockerized deployment
+- Keycloak for authentication
+- Kafka to consume events
+- Terraform and GitHub Actions for CI/CD
