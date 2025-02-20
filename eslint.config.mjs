@@ -60,16 +60,28 @@ export default ts.config(
       'no-restricted-imports': [
         'error',
         {
-          patterns: ['../*', '../../*', 'libs/*', 'apps/*'], // Prevents deep imports
+          patterns: [
+            {
+              regex: '(@\\w+\\/\\w+\\/.*)|libs\\/.*|apps\\/.*',
+              message: 'Deep imports are not allowed',
+            },
+          ],
         },
       ],
-      'import/no-extraneous-dependencies': 'error',
-      'import/no-cycle': 'error',
       '@typescript-eslint/strict-boolean-expressions': 'error',
       '@typescript-eslint/no-unused-vars': 'warn',
       '@typescript-eslint/no-explicit-any': 'warn',
       'no-console': 'warn',
       'prettier/prettier': 'error', // Enforce Prettier formatting
+      'import/no-relative-packages': 'error',
+      'import/no-default-export': 'error',
+      'import/no-named-default': 'error',
+      'import/no-duplicates': 'error',
+      'import/exports-last': 'error',
+      'import/newline-after-import': 'error',
+      'import/no-cycle': 'error',
+      'import/no-useless-path-segments': 'error',
+      'import/no-extraneous-dependencies': 'error',
       'import/no-unresolved': ['error', { ignore: ['^bun(:\\w+)?$'] }],
       'import/extensions': [
         'error',
