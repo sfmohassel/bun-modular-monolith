@@ -57,6 +57,12 @@ export default ts.config(
       },
     },
     rules: {
+      'no-restricted-imports': [
+        'error',
+        {
+          patterns: ['../*', '../../*', 'libs/*', 'apps/*'], // Prevents deep imports
+        },
+      ],
       'import/no-extraneous-dependencies': 'error',
       'import/no-cycle': 'error',
       '@typescript-eslint/strict-boolean-expressions': 'error',
