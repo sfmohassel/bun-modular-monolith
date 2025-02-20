@@ -16,7 +16,7 @@
     "outDir": "dist",
     "rootDir": ".",
     "paths": {
-      "shared": [
+      "@shared/kernel": [
         "libs/shared/index.ts"
       ],
       "@iam/core": [
