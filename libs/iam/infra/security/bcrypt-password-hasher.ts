@@ -1,6 +1,7 @@
+import type { PasswordHasher } from '@iam/app'
 import { password as passwd } from 'bun'
 
-export class PasswordHasher {
+export class BcryptPasswordHasher implements PasswordHasher {
   hash(password: string): Promise<string> {
     return passwd.hash(password, {
       algorithm: 'bcrypt',

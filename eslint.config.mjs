@@ -51,7 +51,7 @@ export default ts.config(
     settings: {
       'import/resolver': {
         node: {
-          extensions: ['.ts', '.tsx'],
+          extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
           moduleDirectory: ['apps/**/*', 'libs/**/*', 'node_modules'],
         },
       },
@@ -81,7 +81,7 @@ export default ts.config(
       'import/newline-after-import': 'error',
       'import/no-cycle': 'error',
       'import/no-useless-path-segments': 'error',
-      'import/no-extraneous-dependencies': 'error',
+      'import/no-extraneous-dependencies': 'off',
       'import/no-unresolved': ['error', { ignore: ['^bun(:\\w+)?$'] }],
       'import/extensions': [
         'error',
