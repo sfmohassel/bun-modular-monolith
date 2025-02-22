@@ -1,7 +1,9 @@
-import type { User } from '../../models/user'
+import { Injectable } from '@nestjs/common'
+import { User } from '../../models/user'
 
-export interface UserRepo {
-  add(user: User): Promise<void>
-  delete(id: string): Promise<void>
-  findByEmail(email: string): Promise<User | null>
+@Injectable()
+export abstract class UserRepo {
+  abstract add(user: User): Promise<void>
+  abstract delete(id: string): Promise<void>
+  abstract findByEmail(email: string): Promise<User | null>
 }

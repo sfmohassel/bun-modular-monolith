@@ -1,7 +1,7 @@
-import { User, UserExistsError, type UserRepo } from '@iam/core'
+import { User, UserExistsError, UserRepo } from '@iam/core'
 import { BaseUseCase } from '@shared/kernel'
-import type { AddUserInput, AddUserOutput } from '../dto/add-user'
-import type { PasswordHasher } from '../services/password-hasher'
+import { AddUserInput, AddUserOutput } from '../dto/add-user'
+import { PasswordHasher } from '../services/password-hasher'
 
 export class AddUser extends BaseUseCase<AddUserInput, AddUserOutput> {
   constructor(

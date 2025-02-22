@@ -9,6 +9,15 @@ import ts from 'typescript-eslint'
 const process = globalThis.process ?? { cwd: () => '.' }
 
 export default ts.config(
+  {
+    ignores: [
+      'node_modules',
+      '**/dist/*',
+      'coverage',
+      'eslint.config.mjs',
+      'tsconfig.json',
+    ],
+  },
   js.configs.recommended,
   ts.configs.recommended,
   // Disables conflicting ESLint rules
@@ -22,25 +31,20 @@ export default ts.config(
       'check-file/filename-naming-convention': [
         'error',
         {
-          '**/*.{jsx,tsx}': 'KEBAB_CASE',
-          '**/*.{js,ts}': 'KEBAB_CASE',
+          '**/*.{jsx,tsx,js,ts,json,yml,yaml}': 'KEBAB_CASE',
         },
-      ],
-      'check-file/folder-naming-convention': [
-        'error',
         {
-          '*': 'KEBAB_CASE',
+          ignoreMiddleExtensions: true,
         },
       ],
     },
   },
   // Enforce TypeScript-specific rules
   {
-    ignores: ['node_modules', 'dist', 'coverage', 'eslint.config.mjs'],
     languageOptions: {
       parser: ts.parser,
       parserOptions: {
-        project: './tsconfig.json',
+        project: true,
         tsconfigRootDir: process.cwd(),
       },
     },
@@ -89,6 +93,8 @@ export default ts.config(
         {
           ts: 'never',
           tsx: 'never',
+          js: 'never',
+          jsx: 'never',
         },
       ],
     },
