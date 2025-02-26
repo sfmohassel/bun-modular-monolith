@@ -1,17 +1,15 @@
 import { User, UserRepo } from '@iam/core'
-import { uuid } from '@shared/kernel'
 
 export class UserRepoImpl extends UserRepo {
-  async add(user: User): Promise<void> {}
-  async delete(id: string): Promise<void> {}
+  private readonly users: Map<string, User> = new Map()
+
+  async add(user: User): Promise<void> {
+    this.users.set(user.id, user)
+  }
+
   async findByEmail(email: string): Promise<User | null> {
-    return null
-    return {
-      id: uuid(),
-      email,
-      name: 'John Doe',
-      password: 'hashed-password',
-      createdAt: new Date(),
-    }
+    return (
+      Array.from(this.users.values()).find((u) => u.email === email) || null
+    )
   }
 }
