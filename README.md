@@ -9,7 +9,6 @@
 
 ## Roadmap
 
-- Recommended Extensions
 - DTO Validation
 - Dockerized deployment
 - Database Migrations (TypeORM)

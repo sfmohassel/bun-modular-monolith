@@ -8,7 +8,7 @@ export class User extends BaseModel {
   password: string
   name?: string
 
-  constructor(user: Omit<User, 'id' | 'createdAt' | 'updatedAt'>) {
+  constructor(user: Pick<User, 'email' | 'password' | 'name'>) {
     super()
     this.email = user.email
     this.password = user.password

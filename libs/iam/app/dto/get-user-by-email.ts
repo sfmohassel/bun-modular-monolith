@@ -1,6 +1,8 @@
+import { IsEmail } from 'class-validator'
 import { User } from './user'
 
 export class GetUserByIdInput {
+  @IsEmail()
   email!: string
 }
 
